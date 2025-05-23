@@ -23,6 +23,11 @@ app.use("/api/auth", authRoutes);
 const productRoutes = require("./routes/products.routes");
 console.log("productRoutes:", productRoutes);
 app.use("/api/products", productRoutes);
+
+// Routes pour les commandes
+const orderRoutes = require("./routes/orders.routes");
+console.log("orderRoutes:", orderRoutes);
+app.use("/api/orders", orderRoutes);
  
 app.listen(process.env.PORT, () =>
   console.log(`Server running on port ${process.env.PORT}`)
