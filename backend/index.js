@@ -14,6 +14,13 @@ mongoose.connect(process.env.MONGO_URI)
 app.get("/", (req, res) => {
   res.send("API is running");
 });
+
+// Utilisation des routes externes
+app.use("/api/auth", require("./routes/auth.routes"));
+// Tu ajouteras ensuite :
+app.use("/api/products", require("./routes/products.routes"));
+app.use("/api/orders", require("./routes/orders.routes"));
+
  
 app.listen(process.env.PORT, () =>
   console.log(`Server running on port ${process.env.PORT}`)
