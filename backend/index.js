@@ -16,10 +16,9 @@ app.get("/", (req, res) => {
 });
 
 // Utilisation des routes externes
-app.use("/api/auth", require("./routes/auth.routes"));
-// Tu ajouteras ensuite :
-app.use("/api/products", require("./routes/products.routes"));
-app.use("/api/orders", require("./routes/orders.routes"));
+const authRoutes = require("./routes/auth.routes");
+console.log("authRoutes:", authRoutes);
+app.use("/api/auth", authRoutes);
 
  
 app.listen(process.env.PORT, () =>
