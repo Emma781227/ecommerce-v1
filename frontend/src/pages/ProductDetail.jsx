@@ -66,7 +66,7 @@ const ProductDetail = () => {
           onClick={handleAddToCart}
           className={`${user ? '' : 'hidden'} mt-4 bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700`}
         >
-          Acheter
+          Acheter ce produit
         </button>
       </div>
     </>
