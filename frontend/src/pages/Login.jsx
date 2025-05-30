@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { Navbar } from "../components/navbar";
 
 export default function Login() {
   const [form, setForm] = useState({ email: "", password: "" });
@@ -33,32 +34,35 @@ export default function Login() {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-6 border rounded shadow bg-white text-black">
-      <h2 className="text-2xl font-bold mb-4">Connexion</h2>
-      {message && <p className="mb-3 text-sm text-red-500">{message}</p>}
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          onChange={handleChange}
-          className="w-full p-2 border rounded"
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Mot de passe"
-          onChange={handleChange}
-          className="w-full p-2 border rounded"
-        />
-        <button
-          type="submit"
-          className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700"
-          disabled={loading}
-        >
-          {loading ? "Connexion..." : "Se connecter"}
-        </button>
-      </form>
-    </div>
+    <>
+      <Navbar />
+      <div className="mt-24 max-w-md mx-auto mt-10 p-6 border rounded shadow bg-white text-black">
+        <h2 className="text-2xl font-bold mb-4">Connexion</h2>
+        {message && <p className="mb-3 text-sm text-red-500">{message}</p>}
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            onChange={handleChange}
+            className="w-full p-2 border rounded"
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="Mot de passe"
+            onChange={handleChange}
+            className="w-full p-2 border rounded"
+          />
+          <button
+            type="submit"
+            className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700"
+            disabled={loading}
+          >
+            {loading ? "Connexion..." : "Se connecter"}
+          </button>
+        </form>
+      </div>
+    </>
   );
 }

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { Navbar } from "../components/navbar";
 
 export default function Register() {
   const [form, setForm] = useState({ name: "", email: "", password: "" });
@@ -18,17 +19,20 @@ export default function Register() {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-4 shadow rounded bg-white text-black">
-      <h2 className="text-2xl font-bold mb-4">Inscription</h2>
-      {message && <p className="mb-2 text-sm text-red-500">{message}</p>}
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <input name="name" placeholder="Nom" onChange={handleChange} className="w-full p-2 border rounded" />
-        <input name="email" placeholder="Email" onChange={handleChange} className="w-full p-2 border rounded" />
-        <input name="password" type="password" placeholder="Mot de passe" onChange={handleChange} className="w-full p-2 border rounded" />
-        <button type="submit" className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700">
-          S'inscrire
-        </button>
-      </form>
-    </div>
+    <>
+      <Navbar />
+      <div className="mt-24 max-w-md mx-auto mt-10 p-4 shadow rounded bg-white text-black">
+        <h2 className="text-2xl font-bold mb-4">Inscription</h2>
+        {message && <p className="mb-2 text-sm text-red-500">{message}</p>}
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <input name="name" placeholder="Nom" onChange={handleChange} className="w-full p-2 border rounded" />
+          <input name="email" placeholder="Email" onChange={handleChange} className="w-full p-2 border rounded" />
+          <input name="password" type="password" placeholder="Mot de passe" onChange={handleChange} className="w-full p-2 border rounded" />
+          <button type="submit" className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700">
+            S'inscrire
+          </button>
+        </form>
+      </div>
+    </>
   );
 }
